@@ -142,6 +142,8 @@ with st.expander("Overall Weights", expanded=False, icon="⚖️"):
             st.session_state.profile['Weights']['Overall']['Environment'] = importance
             st.session_state.profile['Weights']['Overall']['Health'] = 100 - st.session_state.profile['Weights']['Overall']['Environment']
 
+            with st.spinner():
+                    st.success("Changes saved!")
 # ----------------------------------------------------------------------------------------------------
 st.subheader("Health")
 with st.expander("Macro-Nutrients", expanded=False, icon="📊"):
@@ -159,6 +161,9 @@ with st.expander("Macro-Nutrients", expanded=False, icon="📊"):
                 st.session_state.profile['Importance']['Macros'][f'{key}'] = overall_preferences[key]
 
             adjust_weights_nutritional()
+
+            with st.spinner():
+                    st.success("Changes saved!")
         
 
 # ----------------------------------------------------------------------------------------------------
@@ -178,6 +183,9 @@ with st.expander("Micro-Nutrients", expanded=False, icon="🥕"):
 
             adjust_weights_nutritional()
 
+            with st.spinner():
+                    st.success("Changes saved!")
+
 # ----------------------------------------------------------------------------------------------------
 st.subheader("Environment")
 with st.expander("Environmental Aspects", expanded=False, icon="🌎"):
@@ -195,3 +203,6 @@ with st.expander("Environmental Aspects", expanded=False, icon="🌎"):
                 st.session_state.profile['Importance']['Environment'][f'{key}'] = overall_preferences[key]
 
             adjust_weights('Environment', 1)
+
+            with st.spinner():
+                    st.success("Changes saved!")

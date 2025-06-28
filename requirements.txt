@@ -5,3 +5,4 @@ plotly
 matplotlib
 streamlit-aggrid
 requests
+openpyxl
