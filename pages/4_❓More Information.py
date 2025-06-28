@@ -1,4 +1,7 @@
 import streamlit as st
+from auth import check_auth
+
+check_auth()  # 🔐 Protect this page
 
 st.title("More Information")
 
