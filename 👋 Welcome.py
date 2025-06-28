@@ -1,5 +1,8 @@
 import streamlit as st
 from functions import initialize_session_state
+from auth import check_auth
+
+check_auth()  # 🔐 Protect this page
 
 initialize_session_state()
 
