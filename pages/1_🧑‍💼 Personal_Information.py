@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 from data.data_loader import load_micro_nutrient_reference_data
 from functions import initialize_session_state, show_session_state_sidebar
+from auth import check_auth
+
+check_auth()  # 🔐 Protect this page
 
 # ----------------------------------------------------------------------------------------------------
 
