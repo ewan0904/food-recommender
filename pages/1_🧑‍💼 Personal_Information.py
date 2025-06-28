@@ -28,8 +28,7 @@ st.write("""
 def personal_data_form():
     with st.form("personal_data_form"):
         st.header("Personal Data")
-
-        name = st.text_input("Name *", value=st.session_state.profile["General"]["Name"])
+        
         age = st.number_input("Age *", min_value=19, max_value=120, step=1, value=st.session_state.profile["General"]["Age"])
         genders = ["Male", "Female"]
         gender = st.radio("Gender *", genders, index=genders.index(st.session_state.profile["General"]["Gender"]))
@@ -62,8 +61,7 @@ def personal_data_form():
 
         personal_data_form_submit = st.form_submit_button("Save")
         if personal_data_form_submit:
-            if all([name, age, gender, weight, height, activity_level]):
-                st.session_state.profile["General"]["Name"] = name
+            if all([age, gender, weight, height, activity_level]):
                 st.session_state.profile["General"]["Age"] = age
                 st.session_state.profile["General"]["Gender"] = gender
                 st.session_state.profile["General"]["Weight"] = weight
