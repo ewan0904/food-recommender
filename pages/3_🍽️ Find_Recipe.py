@@ -9,6 +9,9 @@ import ast
 import math
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
+from auth import check_auth
+
+check_auth()  # 🔐 Protect this page
 
 # ----------------------------------------------------------------------------------------------------
 st.markdown("# Find your Recipe")
