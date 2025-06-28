@@ -39,6 +39,7 @@ This prototype was created to address a common gap: the lack of clear, accessibl
 
 - Before searching for recipes, please complete the form under the **"Personal Information"** tab.
 - You can **adjust your preferences** if you don't want to rely on the default settings provided.
+- We won't store any of your inputs, and are also not asking for your name. This application is for you to test out, and provide feedback on the provided survey link! :)
 
 ---
 
