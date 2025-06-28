@@ -5,7 +5,6 @@ def initialize_session_state():
     if "profile" not in st.session_state:
             st.session_state.profile = {
                 "General": {
-                    "Name": "",
                     "Age": 25,
                     "Gender": "Male",
                     "Weight": 70.0,
