@@ -5,7 +5,9 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 from functions import show_session_state_sidebar
 from functions import initialize_session_state
+from auth import check_auth
 
+check_auth()  # 🔐 Protect this page
 # ----------------------------------------------------------------------------------------------------
 
 initialize_session_state()
