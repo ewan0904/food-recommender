@@ -3,5 +3,5 @@ pandas
 numpy
 plotly
 matplotlib
-st-aggrid
+streamlit-aggrid
 requests
