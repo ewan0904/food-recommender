@@ -891,6 +891,93 @@ if recipe_df is not None:
 # Nutrition Tab
 # ----------------------------------------------------------------------------------------------------
         with nutrition_tab:
+
+            with st.expander("📊 **How to read the bar charts?**"):
+            st.markdown("""
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                    <span>Example 1</span>
+                    <span>Actual: 70g &nbsp;&nbsp;|&nbsp;&nbsp; Recommended: 60-80g</span>
+                </div>
+                <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden;">
+                <div style="width: 70%; background-color: #2ECC71; height: 100%;"></div>
+                <div style="
+                    position: absolute;
+                    left: 60%;
+                    width: 20%;
+                    top: 0;
+                    bottom: 0;
+                    background-color: rgba(0, 120, 0, 0.5);
+                    border-radius: 6px;
+                    z-index: 1;">
+                </div>
+        
+            </div>
+                        
+            """, unsafe_allow_html=True)
+            st.markdown("""> *The actual value lies within the recommended range and it is considered healthy.*""")
+            st.markdown("""
+        
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                    <span>Example 2</span>
+                    <span>Actual: 40g &nbsp;&nbsp;|&nbsp;&nbsp; Recommended: 60-80g</span>
+                </div>
+                <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden;">
+                <div style="width: 40%; background-color: #FFA500; height: 100%;"></div>
+                <div style="
+                    position: absolute;
+                    left: 60%;
+                    width: 20%;
+                    top: 0;
+                    bottom: 0;
+                    background-color: rgba(0, 120, 0, 0.5);
+                    border-radius: 6px;
+                    z-index: 1;">
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown("""> *The actual value falls short and can indicate a minor or major insufficiency.*""")
+            st.markdown("""
+        
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                    <span>Example 3</span>
+                    <span>Actual: 90g &nbsp;&nbsp;|&nbsp;&nbsp; Recommended: 60-80g</span>
+                </div>
+                <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden;">
+                <div style="width: 90%; background-color: #FF4136; height: 100%;"></div>
+                <div style="
+                    position: absolute;
+                    left: 60%;
+                    width: 20%;
+                    top: 0;
+                    bottom: 0;
+                    background-color: rgba(0, 120, 0, 0.5);
+                    border-radius: 6px;
+                    z-index: 1;">
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown("""> *The actual value exceeds the recommended range and can potentially cause problems.*""")
+            st.markdown("""
+            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                <span>Example 4</span>
+                <span>Actual: 4g &nbsp;&nbsp;|&nbsp;&nbsp; Limit: 8g</span>
+            </div>
+        
+            <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden; margin-bottom: 12px;">
+                <div style="width: 40%; background-color: #2ECC71; height: 100%;"></div>
+                <div style="
+                        position: absolute;
+                        left: 80%;
+                        top: 0;
+                        bottom: 0;
+                        width: 5px;
+                        background-color: #FF4136;
+                        z-index: 2;">
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown("""> *The actual value is below the limit and it is considered good.*""")
+            
             with st.expander("**🔥 Calories**"):
                 kcal_per_day = int(st.session_state.profile['Macros']['Calories'])
                 kcal_per_meal = int(kcal_per_day / meals)
@@ -939,6 +1026,95 @@ if recipe_df is not None:
 # Environment Tab
 # ----------------------------------------------------------------------------------------------------
         with environment_tab:
+
+            with st.expander("📊 **How to read the bar charts?**"):
+                    st.markdown("""
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                            <span>Example 5</span>
+                            <span>Actual: 2kg &nbsp;&nbsp;|&nbsp;&nbsp; Threshold: 5kg</span>
+                        </div>
+            
+                    <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden; margin-bottom: 12px;">
+                        <div style="width: 20%; background-color: #64C254; height: 100%;"></div>
+                        <div style="
+                                position: absolute;
+                                left: 50%;
+                                top: 0;
+                                bottom: 0;
+                                width: 5px;
+                                background-color: #FF4136;
+                                z-index: 2;">
+                        </div>
+                    </div>
+                    
+                """, unsafe_allow_html=True)
+                st.markdown("""> *The actual value is below the threshold and is considered safe.*""")
+                st.markdown("""
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                            <span>Example 6</span>
+                            <span>Actual: 7kg &nbsp;&nbsp;|&nbsp;&nbsp; Threshold: 5kg</span>
+                        </div>
+            
+                    <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden; margin-bottom: 12px;">
+                        <div style="width: 70%; background-color: #FF4136; height: 100%;"></div>
+                        <div style="
+                                position: absolute;
+                                left: 50%;
+                                top: 0;
+                                bottom: 0;
+                                width: 5px;
+                                background-color: #FF4136;
+                                z-index: 2;">
+                        </div>
+                    </div>
+                    
+                """, unsafe_allow_html=True)
+                st.markdown("""> *The actual value exceeds the threshold and is considered unsafe.*""")
+                st.markdown("""
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                            <span>Example 7</span>
+                            <span>Actual: 1 in 2 million &nbsp;&nbsp;|&nbsp;&nbsp; Median: 1 in 4 million</span>
+                        </div>
+            
+                    <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden; margin-bottom: 12px;">
+                        <div style="width: 20%; background-color: #FF4136; height: 100%;"></div>
+                        <div style="
+                                position: absolute;
+                                left: 40%;
+                                top: 0;
+                                bottom: 0;
+                                width: 5px;
+                                background-color: #FF4136;
+                                z-index: 2;">
+                        </div>
+                    </div>
+                    
+                """, unsafe_allow_html=True)
+                st.markdown("""> *The actual value represents a fraction and is therefore higher than the median, which is considered relatively bad. It means that the consumption of a recipe compared to the median value of all recipes causes more cases of illnesses. (Read more under Human-Health Metrics above)*""")
+                st.markdown("""
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                            <span>Example 8</span>
+                            <span>Actual: 1 in 4 million &nbsp;&nbsp;|&nbsp;&nbsp; Median: 1 in 2 million</span>
+                        </div>
+            
+                    <div style="position: relative; height: 14px; background-color: #eee; border-radius: 7px; overflow: hidden; margin-bottom: 12px;">
+                        <div style="width: 40%; background-color: #2ECC71; height: 100%;"></div>
+                        <div style="
+                                position: absolute;
+                                left: 20%;
+                                top: 0;
+                                bottom: 0;
+                                width: 5px;
+                                background-color: #FF4136;
+                                z-index: 2;">
+                        </div>
+                    </div>
+                    
+                """, unsafe_allow_html=True)
+                st.markdown("""> *The actual value represents a fraction and is therefore lower than the median, which is considered relatively good. It means that the consumption of a recipe compared to the median value of all recipes causes less cases of illnesses. (Read more under Human-Health Metrics above)*""")
+
+
+            
             with st.expander("**🟢 Categories with safe thresholds**"):
                 render_bar_environment("Acification", "mol H+", selected_recipe['Total - mol H+ eq'], environment['Acidification'], 1, 3)
                 render_bar_environment("Climate Change", "kg CO₂", selected_recipe['Total - Co2 eq'], environment['Climate Change'], 1, 2)
