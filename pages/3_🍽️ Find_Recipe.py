@@ -712,42 +712,42 @@ def recipe_tab(input_value):
         except ValueError:
             pass  # or log/collect invalid ones if needed
     results = []
-    filtered_recipes = recipes_df[recipes_df['recipe_id'].isin(recipe_ids_int)]
-    # Iterate over all recipes
-    for _, recipe_row in filtered_recipes.iterrows():
-        recipe_id = recipe_row['recipe_id']
-        rating = float(recipe_row['Rating'])
-        title = recipe_row['Title']  # Make sure 'title' matches your actual column name
-
-        try:
-            # Calculate scores
-            health_contributions, environmental_contributions = calculate_score(recipe_id)
-
-            health_weight = st.session_state.profile['Weights']['Overall']['Health']
-            environment_weight = st.session_state.profile['Weights']['Overall']['Environment']
-
-            health_score = (sum(health_contributions.values()) * 100)
-            environment_score = (sum(environmental_contributions.values()) * 100)
-            final_score = (health_weight / 100) * health_score + (environment_weight / 100) * environment_score
-
-            # Append result
-            results.append({
-                'recipe_id': recipe_id,
-                'title': title,
-                'rating': rating,
-                'health_score': health_score,
-                'environment_score': environment_score,
-                'final_score': final_score
-            })
-
-        except Exception as e:
-            st.warning(f"Skipping recipe {recipe_id} due to error: {e}")
-
-    # Convert to DataFrame
-    df = pd.DataFrame(results)
-    df[['health_score', 'environment_score', 'final_score']] = df[['health_score', 'environment_score', 'final_score']]
-
-    st.session_state.profile['other']['recipe_df'] = df
+    if not recipe_ids_int:
+        filtered_recipes = recipes_df[recipes_df['recipe_id'].isin(recipe_ids_int)]
+        # Iterate over all recipes
+        for _, recipe_row in filtered_recipes.iterrows():
+            recipe_id = recipe_row['recipe_id']
+            rating = float(recipe_row['Rating'])
+            title = recipe_row['Title']  # Make sure 'title' matches your actual column name
+    
+            try:
+                # Calculate scores
+                health_contributions, environmental_contributions = calculate_score(recipe_id)
+    
+                health_weight = st.session_state.profile['Weights']['Overall']['Health']
+                environment_weight = st.session_state.profile['Weights']['Overall']['Environment']
+    
+                health_score = (sum(health_contributions.values()) * 100)
+                environment_score = (sum(environmental_contributions.values()) * 100)
+                final_score = (health_weight / 100) * health_score + (environment_weight / 100) * environment_score
+    
+                # Append result
+                results.append({
+                    'recipe_id': recipe_id,
+                    'title': title,
+                    'rating': rating,
+                    'health_score': health_score,
+                    'environment_score': environment_score,
+                    'final_score': final_score
+                })
+    
+            except Exception as e:
+                st.warning(f"Skipping recipe {recipe_id} due to error: {e}")
+    
+        # Convert to DataFrame
+        df = pd.DataFrame(results)
+    
+        st.session_state.profile['other']['recipe_df'] = df
 
 # ----------------------------------------------------------------------------------------------------
 # Find Recipe Form
